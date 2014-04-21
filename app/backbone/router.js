@@ -3,7 +3,6 @@ var $        = require('jquery');
 var _        = require('underscore');
 var MediaModel = require('./models/Media');
 var MediaCollection = require('./models/MediaCollection');
-var MediaModelView = require('./views/MediaModelView');
 var MediaCollectionView = require('./views/MediaCollectionView');
 
 module.exports = Backbone.Router.extend({

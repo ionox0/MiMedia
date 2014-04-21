@@ -12,14 +12,6 @@ module.exports = function(grunt){
   grunt.initConfig({
 
     copy: {
-      prod: {
-        expand: true,
-        cwd: 'app/assets',
-        src: ['foundation/*.css', '*.html', 'images/**/*'],
-        dest: 'dist/',
-        flatten: false,
-        filter: 'isFile'
-      },
       dev: {
         expand: true,
         cwd: 'app',
@@ -49,11 +41,6 @@ module.exports = function(grunt){
       }
     },
     sass: {
-      dist: {
-        files: {
-          'build/styles/main.css': 'app/styles/main.scss'
-        }
-      },
       dev: {
         options: {
           includePaths: ['app/styles/scss/'],
@@ -72,29 +59,9 @@ module.exports = function(grunt){
           script: 'server.js',
           node_env: 'development'
         }
-      },
-      prod: {
-        options: {
-          script: 'server.js',
-          node_env: 'production'
-        }
-      },
-      test: {
-        options: {
-          script: 'server.js',
-          node_env: 'test'
-        }
       }
     },
     browserify: {
-      prod: {
-        src: ['app/backbone/*.js'],
-        dest: 'dist/browser.js',
-        options: {
-          transform: ['debowerify', 'hbsfy'],
-          debug: false
-        }
-      },
       dev: {
         src: ['app/backbone/*.js'],
         dest: 'build/browser.js',
@@ -105,17 +72,15 @@ module.exports = function(grunt){
       }
     },
     clean: {
-      build: ['build'],
       dev: {
         src: ['build/**/*']
       },
-      prod: ['dist'],
       postUglify: ['build/browser.js']
     }
 
   })
 
 grunt.registerTask('default',['express:dev', 'watch:express']);
-grunt.registerTask('build:dev', ['clean:dev', 'copy:dev', 'browserify:dev', 'uglify']);
+grunt.registerTask('build:dev', ['clean:dev', 'sass:dev', 'copy:dev', 'browserify:dev', 'uglify', 'clean:postUglify']);
 
 }
