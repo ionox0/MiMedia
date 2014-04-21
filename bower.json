@@ -1,0 +1,22 @@
+{
+  "name": "mimedia",
+  "version": "0.0.0",
+  "authors": [
+    "ionox0 <ionox0@gmail.com>"
+  ],
+  "description": "~tiny app~",
+  "main": "server.js",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backbone": "~1.1.2",
+    "jquery": "~2.1.0"
+  }
+}
