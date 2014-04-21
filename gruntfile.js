@@ -41,8 +41,8 @@ module.exports = function(grunt){
         livereload: true,
       },
       express: {
-        files:  [ 'index.html', 'server.js' ],
-        tasks:  [ 'express:dev' ],
+        files:  [ 'index.html', 'server.js', 'app/**/*' ],
+        tasks:  [ 'build:dev', 'express:dev' ],
         options: {
           spawn: false
         }
@@ -88,18 +88,18 @@ module.exports = function(grunt){
     },
     browserify: {
       prod: {
-        src: ['app/**/*.js'],
+        src: ['app/backbone/*.js'],
         dest: 'dist/browser.js',
         options: {
-          transform: ['debowerify'],
+          transform: ['debowerify', 'hbsfy'],
           debug: false
         }
       },
       dev: {
-        src: ['app/**/*.js'],
+        src: ['app/backbone/*.js'],
         dest: 'build/browser.js',
         options: {
-          transform: ['debowerify'],
+          transform: ['debowerify', 'hbsfy'],
           debug: true
         }
       }
@@ -109,13 +109,13 @@ module.exports = function(grunt){
       dev: {
         src: ['build/**/*']
       },
-      prod: ['dist']
+      prod: ['dist'],
+      postUglify: ['build/browser.js']
     }
 
   })
 
 grunt.registerTask('default',['express:dev', 'watch:express']);
 grunt.registerTask('build:dev', ['clean:dev', 'copy:dev', 'browserify:dev', 'uglify']);
-grunt.registerTask('build:prod', ['clean:prod', 'sass:prod', 'copy:prod', 'browserify:prod', 'uglify']);
 
 }

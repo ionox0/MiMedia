@@ -11,12 +11,13 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "bower_components",
+    "app/bower_components",
     "test",
     "tests"
   ],
   "dependencies": {
     "backbone": "~1.1.2",
-    "jquery": "~2.1.0"
+    "jquery": "~2.1.0",
+    "underscore": "~1.6.0"
   }
 }

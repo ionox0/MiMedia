@@ -1,7 +1,10 @@
-var MediaModel = require('./models/MediaModel');
+var Backbone = require('backbone');
+var $        = require('jquery');
+var _        = require('underscore');
+var MediaModel = require('./models/Media');
 var MediaCollection = require('./models/MediaCollection');
 var MediaModelView = require('./views/MediaModelView');
-var MediaCollectionView = require('./views/MediaCollectionView')
+var MediaCollectionView = require('./views/MediaCollectionView');
 
 module.exports = Backbone.Router.extend({
 
@@ -12,17 +15,9 @@ module.exports = Backbone.Router.extend({
   list: function(){
     this.mediaModel = new MediaModel();
     this.mediaCollection = new MediaCollection();
-    this.mediaModelView = new MediaModelView({
-      model: this.mediaModel
-    });
     var that = this;
-    this.mediaModel.fetch({
-      success: function () {
-        that.mediaModelView.render();
-      }
-    });
     this.mediaCollectionView = new MediaCollectionView({
-      model: this.mediaCollectionView
+      model: this.mediaCollection
     });
     this.mediaCollection.fetch({
       success: function () {
