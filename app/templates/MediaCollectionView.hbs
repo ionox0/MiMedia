@@ -1,9 +1,20 @@
-{{#each mimeTypeFullList}}
-<div>
-  Type: {{type}}</br>
-  File Extension: {{fileExtension}}</br>
-  Description: {{description}}</br>
-  Supported? {{supported}}</br><hr>
-</div>
-{{/each}}
+<table>
+  <tr>
+    <th>Type <button class="button tiny" id="sort" data-type="type">Sort</button ></th>
+    <th>File Extension <button class="button tiny" id="sort" data-type="extension">Sort</button></th>
+    <th>Description <button class="button tiny" id="sort" data-type="description">Sort</button></th>
+    <th>Supported <button class="button tiny" id="sort" data-type="supported">Sort</button></th>
+  </tr>
+
+  {{#each mimeTypeFullList}}
+  <tr>
+    <td>{{type}}</td>
+    <td>{{fileExtension}}</td>
+    <td>{{description}}</td>
+    <td>{{supported}}</td>
+  </tr>
+  {{/each}}
+
+</table>
+
 

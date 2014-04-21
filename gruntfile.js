@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = function(grunt){
 
   grunt.loadNpmTasks('grunt-contrib-watch');
@@ -15,7 +17,7 @@ module.exports = function(grunt){
       dev: {
         expand: true,
         cwd: 'app',
-        src: ['styles/foundation/*.css', '*.html', 'assets/images/**/*', 'js/vendor/**/*', 'templates/**/*'],
+        src: ['index.html', 'styles/**/*', 'templates/**/*'],
         dest: 'build/',
         flatten: false,
         filter: 'isFile'
@@ -63,7 +65,7 @@ module.exports = function(grunt){
     },
     browserify: {
       dev: {
-        src: ['app/backbone/*.js'],
+        src: ['app/js/**/*.js'],
         dest: 'build/browser.js',
         options: {
           transform: ['debowerify', 'hbsfy'],
@@ -78,9 +80,9 @@ module.exports = function(grunt){
       postUglify: ['build/browser.js']
     }
 
-  })
+  });
 
 grunt.registerTask('default',['express:dev', 'watch:express']);
 grunt.registerTask('build:dev', ['clean:dev', 'sass:dev', 'copy:dev', 'browserify:dev', 'uglify', 'clean:postUglify']);
 
-}
+};

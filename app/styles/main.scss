@@ -1,16 +1,6 @@
-$red:#9F1501;
- $lightCoffee:#D29C77;
- $rustRed:#cc6600;
- $darkRed:#6C0F00; //#590902; //6C1C12
-$lightRed:#520B00;
- $white:#FFFAF6; //#F3E0D2
-$coffee:#9F460B;
- $main-font-color:$darkRed;
- $question-font-color:$darkRed;
- $off-white:#FFEFC3; //#FFEFB7; //#FFEFDB;
-$off-white-hover:#D9CFBE;
- $match-white:#F0EBDE;
+$darkRed: #6C0F00;
+$main-font-color: $darkRed;
 
 #results {
-  color:$main-font-color;
+  color: $main-font-color;
 }
