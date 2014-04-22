@@ -15,8 +15,8 @@ module.exports = Backbone.View.extend({
   },
 
   render: function() {
-    var mediaAttributes = this.model.toJSON();
-    this.$el.append(template(mediaAttributes));
+    var attrs = this.model.toJSON();
+    this.$el.append(template(attrs));
     return this;
   }
 

@@ -28,7 +28,15 @@ module.exports = Backbone.View.extend({
 
   addAll: function() {
     this.$el.html('');
-    this.$el.prepend(template);
+
+    var attrs = this.collection.toJSON();
+    attrs.imageCount = this.collection.count("image");
+    attrs.videoCount = this.collection.count("video");
+    attrs.audioCount = this.collection.count("audio");
+    attrs.documentCount = this.collection.count("application");
+    attrs.plainTextCount = this.collection.count("text/plain");
+
+    this.$el.prepend(template(attrs));
     this.collection.forEach(this.addMedia, this);
   },
 

@@ -14,6 +14,14 @@ module.exports = Backbone.Collection.extend({
   parse: function(response){
     var list = response.mimeTypeFullList;
     return list;
+  },
+
+  count: function(mimeType) {
+
+    return this.filter(function(n) {
+      return !(n.get('type').indexOf(mimeType));
+    }).length;
+
   }
 
 });
