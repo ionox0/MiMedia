@@ -5,14 +5,10 @@ var _        = require('underscore');
 module.exports = Backbone.Model.extend({
 
   defaults: {
-    mimeTypeFullList: [
-    {
-      type: "",
-      fileExtension: "",
-      description: "",
-      supported: ""
-    }
-    ]
+    type: "",
+    fileExtension: "",
+    description: "",
+    supported: ""
   }
 
 });

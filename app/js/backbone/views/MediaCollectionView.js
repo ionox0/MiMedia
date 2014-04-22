@@ -6,25 +6,25 @@ var template = require('../../../templates/MediaCollectionView.hbs');
 module.exports = Backbone.View.extend({
 
   events: {
-    'click #sort': 'sort',
-    'reset': 'render2'
+    'click #sort': 'sort'
+  },
+
+  initialize: function(){
+    this.collection.on('sort', this.render, this);
   },
 
   render: function(){
-    var index = template(this.model.toJSON()[0]);
+    var index = template(this.collection.toJSON()[0]);
     this.$el.html(index);
+    console.log(this.collection.toJSON());
   },
 
   sort: function(e){
-    console.log($(e.target).data('type'));
-    var comparator = $(e.target).data('type');
-    this.model.comparator = comparator;
-    this.model.sort();
-  },
-
-  render2: function(){
-    console.log('asdf');
-    $('#results').html(this.$el);
+    this.comparator = $(e.target).data('type');
+    console.log(this.comparator);
+    var that = this;
+    //this.collection.set('comparator', this.comparator);
+    this.collection.sort();
   }
 
 })
