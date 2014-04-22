@@ -21,6 +21,7 @@ module.exports = Backbone.Router.extend({
     var that = this;
     this.mediaCollection.fetch({})
     $('#results').html(this.mediaCollectionView.el);
+
   }
 
 })

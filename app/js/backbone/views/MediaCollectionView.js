@@ -5,7 +5,8 @@ var $         = require('jquery');
 Backbone.$    = $;
 var _         = require('underscore');
 var MediaView = require('./MediaView.js');
-var template  = require('../../../templates/MediaCollectionView.hbs');
+var headerTemplate  = require('../../../templates/MediaCollectionView.hbs');
+var footerTemplate  = require('../../../templates/MediaCollectionViewFooter.hbs');
 
 module.exports = Backbone.View.extend({
 
@@ -36,8 +37,9 @@ module.exports = Backbone.View.extend({
     attrs.documentCount = this.collection.count("application");
     attrs.plainTextCount = this.collection.count("text/plain");
 
-    this.$el.prepend(template(attrs));
+    this.$el.prepend(headerTemplate(attrs));
     this.collection.forEach(this.addMedia, this);
+    this.$el.append(footerTemplate(attrs));
   },
 
   addMedia: function(media) {
