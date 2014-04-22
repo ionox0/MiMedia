@@ -17,7 +17,7 @@ module.exports = function(grunt){
       dev: {
         expand: true,
         cwd: 'app',
-        src: ['index.html', 'styles/**/*', 'templates/**/*'],
+        src: ['index.html', 'styles/**/*', 'templates/**/*', '**/*.png', 'js/vendor/*.js'],
         dest: 'build/',
         flatten: false,
         filter: 'isFile'
@@ -65,7 +65,7 @@ module.exports = function(grunt){
     },
     browserify: {
       dev: {
-        src: ['app/js/**/*.js'],
+        src: ['app/js/backbone/**/*.js'],
         dest: 'build/browser.js',
         options: {
           transform: ['debowerify', 'hbsfy'],

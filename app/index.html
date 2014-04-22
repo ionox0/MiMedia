@@ -1,10 +1,50 @@
 <html>
 <body>
-  <div class="full large-8 small-centered columns text-center">
-    <div id="results"></div>
+
+  <div class="off-canvas-wrap" data-offcanvas>
+    <div class="inner-wrap">
+
+      <nav class="tab-bar">
+        <section class="left-small">
+          <a class="left-off-canvas-toggle menu-icon">
+            <span></span>
+          </a>
+        </section>
+        <section class="middle tab-bar-section">
+          <a href="/"><img id="logo" src="../assets/images/mimedia.png"/></a>
+        </section>
+      </nav>
+
+      <aside class="left-off-canvas-menu">
+        <ul class="off-canvas-list">
+          <li><a href="#a">a</a></li>
+          <li><a href="#b">b</a></li>
+          <li><a href="#c">c</a></li>
+          <li><a href="#d">d</a></li>
+        </ul>
+      </aside>
+
+      <i class="fa-menu"></i>
+      <a class="exit-off-canvas"></a>
+
+      <div class="full large-8 small-centered columns text-center">
+        <div id="results"></div>
+      </div>
+
+    </div>
   </div>
+
   <link rel="stylesheet" href="styles/main.css">
   <link rel="stylesheet" href="styles/foundation.min.css">
+  <script src="js/vendor/handlebars-v1.3.0.js"></script>
+  <script src="js/vendor/jquery.js"></script>
+  <script src="js/vendor/fastclick.js"></script>
+  <script src="js/vendor/foundation.min.js"></script>
   <script src="browser.js"></script>
+
+  <script>
+    $(document).foundation();
+  </script>
+
 </body>
 </html>
