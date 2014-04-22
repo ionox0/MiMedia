@@ -1,29 +1,46 @@
-var Backbone = require('backbone');
-var $        = require('jquery');
-var _        = require('underscore');
-var template = require('../../../templates/MediaCollectionView.hbs');
+'use strict';
+
+var Backbone  = require('backbone');
+var $         = require('jquery');
+Backbone.$    = $;
+var _         = require('underscore');
+var MediaView = require('./MediaView.js');
+var template  = require('../../../templates/MediaCollectionView.hbs');
 
 module.exports = Backbone.View.extend({
+
+  tagName: 'table',
+  className: 'mediaList',
 
   events: {
     'click #sort': 'sort'
   },
 
   initialize: function(){
-    this.collection.on('sort', this.render, this);
+    this.collection.on('add', this.addMedia, this);
+    this.collection.on('reset', this.addAll, this);
+    this.collection.on('sort', this.addAll, this);
   },
 
   render: function(){
-    var index = template(this.collection.toJSON()[0]);
-    this.$el.html(index);
-    console.log(this.collection.toJSON());
+    this.addAll();
+  },
+
+  addAll: function() {
+    this.$el.html('');
+    this.$el.prepend(template);
+    this.collection.forEach(this.addMedia, this);
+  },
+
+  addMedia: function(media) {
+    var mediaView = new MediaView({model: media});
+    this.$el.append(mediaView.el);
   },
 
   sort: function(e){
-    this.comparator = $(e.target).data('type');
-    console.log(this.comparator);
-    var that = this;
-    //this.collection.set('comparator', this.comparator);
+    console.log(e.currentTarget.getAttribute("data-type"));
+    var sort = e.currentTarget.getAttribute("data-type");
+    this.collection.comparator = sort;
     this.collection.sort();
   }
 

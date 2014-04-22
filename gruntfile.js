@@ -83,6 +83,6 @@ module.exports = function(grunt){
   });
 
 grunt.registerTask('default',['express:dev', 'watch:express']);
-grunt.registerTask('build:dev', ['clean:dev', 'sass:dev', 'copy:dev', 'browserify:dev', 'uglify', 'clean:postUglify']);
+grunt.registerTask('build:dev', ['clean:dev', 'sass:dev', 'copy:dev', 'browserify:dev', 'uglify']);
 
 };

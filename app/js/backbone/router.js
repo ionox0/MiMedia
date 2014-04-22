@@ -1,3 +1,5 @@
+'use strict';
+
 var Backbone = require('backbone');
 var $        = require('jquery');
 var _        = require('underscore');
@@ -12,12 +14,11 @@ module.exports = Backbone.Router.extend({
   },
 
   list: function(){
-    this.mediaModel = new MediaModel();
     this.mediaCollection = new MediaCollection();
-    var that = this;
     this.mediaCollectionView = new MediaCollectionView({
       collection: this.mediaCollection
     });
+    var that = this;
     this.mediaCollection.fetch({
       success: function () {
         that.mediaCollectionView.render();

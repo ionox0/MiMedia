@@ -9,10 +9,12 @@ module.exports = Backbone.Collection.extend({
     this.url = 'https://api.qa.mimedia.com/2.0/mimetypesfull/supported/list'
   },
 
-  sort:
-
   model: Media,
 
-  comparator: 'type'
+  parse: function(response){
+    var list = response.mimeTypeFullList;
+    return list;
+  }
 
-})
+});
+
