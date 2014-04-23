@@ -1,4 +1,4 @@
-view [live](ianjohnson.co)
+View [live](ianjohnson.co) on aws ec2
 
 SETUP
 ---
