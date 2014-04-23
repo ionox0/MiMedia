@@ -1,3 +1,10 @@
+SETUP
+---
+-npm install && bower install 
+-grunt build:dev
+-grunt
+
+
 MISSION
 ---
 Your mission, should you choose to accept it, is to create a super tiny webapp **in CoffeeScript** that does the following:
