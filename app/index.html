@@ -45,7 +45,23 @@
   <script src="browser.js"></script>
 
   <script>
+
     $(document).foundation();
+
+    (function($) {
+
+      $(window).resize(function resize(){
+        if ($(window).width() < 1009) {
+          $('.mobile').removeClass('small-4 columns');
+          $('.mobile').addClass('small-12 columns');
+        } else {
+          $('.mobile').removeClass('small-12 columns');
+          $('.mobile').addClass('small-4 columns');
+        }
+
+      }).trigger('resize');
+    })(jQuery);
+
   </script>
 
   <footer class="right">
