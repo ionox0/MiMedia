@@ -1,8 +1,8 @@
 SETUP
 ---
--npm install && bower install 
--grunt build:dev
--grunt
+npm install && bower install 
+grunt build:dev
+grunt
 
 
 MISSION
