@@ -8,6 +8,10 @@ $coffee:#9F460B;
 
 $main-font-color:$darkRed;
 
+@media screen and (min-width: 0px) and (max-width: 400px) {
+  .noMobile { display: none; }
+}
+
 #results {
   color: $main-font-color;
 }
