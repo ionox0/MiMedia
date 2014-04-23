@@ -1,3 +1,5 @@
+view [live](ianjohnson.co)
+
 SETUP
 ---
 npm install && bower install, grunt build:dev, grunt
