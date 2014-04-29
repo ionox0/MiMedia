@@ -49,6 +49,14 @@
     $(document).foundation();
 
     //mobile resizing of description column
+    if ($(window).width() < 1009) {
+      $('.mobile').removeClass('small-4 columns');
+      $('.mobile').addClass('small-12 columns');
+    } else {
+      $('.mobile').removeClass('small-12 columns');
+      $('.mobile').addClass('small-4 columns');
+    }
+    //dynamic resizing of description column
     (function($) {
 
       $(window).resize(function resize(){
