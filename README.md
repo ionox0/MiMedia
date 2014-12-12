@@ -1,4 +1,4 @@
-View [live](http://www.ianjohnson.co) on aws ec2
+View [live](http://mimedia.ianjohnson.co/) on aws ec2
 
 SETUP
 ---
